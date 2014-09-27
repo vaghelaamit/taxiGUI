@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+[class^="btn-"]{
+	margin:0 auto;
+}
+.btn-15p{
+	width:15%;
+	margin:0 auto;
+	float: right;
+	margin-right: 92px;
+}
+.btn-8p{
+	width:8%;
+}
+.btn-10p{
+	width:10%;
+}
+.btn-20p{
+	width:20%;
+}
+.btn-25p{
+	width:25%;
+}
+.btn-30p{
+	width:30%;
+}
+.btn-33p{
+	width:33%;
+}
+.btn-40p{
+	width:40%;
+}
+.btn-50p{
+	width:50%;
+}
+.btn-60p{
+	width:60%;
+}
+.btn-70p{
+	width:70%;
+}
+.btn-80p{
+	width:80%;
+}
+.btn-90p{
+	width:90%;
+}
+.btn-100p{
+	width:100%;
+}

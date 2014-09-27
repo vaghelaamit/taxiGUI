@@ -1,0 +1,248 @@
+@charset "utf-8";
+/* CSS Document */
+.bg_color{
+	background:#0088cc;
+	color:#fff;
+}
+.gray_gradient{
+	background: #e3e4e4;
+	background: -moz-linear-gradient(top, #fff 0, #e3e4e4 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(100%, #e5e5e5));
+	background: -webkit-linear-gradient(top, #fff 0, #e5e5e5 100%);
+	background: -o-linear-gradient(top, #fff 0, #e3e4e4 100%);
+	background: -ms-linear-gradient(top, #fff 0, #e3e4e4 100%);
+	background: linear-gradient(to bottom, #fff 0, #e3e4e4 100%);
+}
+.drop_down_menu{
+	text-align:center;
+	padding:4px 0px;
+	cursor:pointer;
+	font-size:14px;
+	width:100%;
+	background:#f1f1f1;
+	-webkit-box-shadow: 0 1px 0px rgba(0,0,0,.175);
+	box-shadow: 0 1px 0px rgba(0,0,0,.175);
+}
+.section{
+	width:1300px;
+	height:auto;
+	margin:0 auto;
+	border:1px solid #f1f1f1;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding-bottom:20px;	
+	background:#fff;
+	z-index: 1000;
+	font-size: 14px;
+	border: 1px solid #f1f1f1;
+	border-radius:2px;
+	-webkit-box-shadow: 0 1px 0px rgba(0,0,0,.175);
+	box-shadow: 0 1px 0px rgba(0,0,0,.175);
+	position:relative;
+	border-radius:4px;
+}
+.section [class^="header-tab"]{
+	padding:1px;
+	border-bottom:1px solid #f1f1f1;
+}
+.header-tab10{
+	width:90%;
+}
+.header-tab9{
+	width:90%;
+}
+.header-tab8{
+	width:87%;
+}
+.header-tab7{
+	width:70%;
+}
+.header-tab6{
+	width:60%;
+}
+.header-tab5{
+	width:50%;
+}
+.header-tab4{
+	width:40%;
+}
+.header-tab3{
+	width:30%;
+}
+.header-tab2{
+	width:20%;
+}
+.header-tab1{
+	width: 138px;
+}
+
+[class^="tab-"]{
+	list-style-type:none;
+}
+[class^="tab-"] a{
+	line-height: 20px;
+	text-align:center;
+	margin: 0 auto;
+	padding: 8px 7px;
+	border: 1px solid #e5e5e5;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	font-weight:400;
+}
+.sideMenu{
+	margin:4% 0px 0px 10px;	
+	float:left;
+}
+.sideMenu a{
+	font-weight:bold;
+}
+[class^="tab-"] a.left{
+	float:left;
+	margin:0px 0px 0px -1px;
+}
+[class^="tab-"] a:hover,[class^="tab-"] a:visited{
+	background:#e5e5e5;
+	color:#000;
+	background: -webkit-linear-gradient(#f1f1f1,#e5e5e5);
+}
+[class^="tab-"]:hover [class*="icon-"],[class^="tab-"]:hover [class*="fa-"],[class^="tab-"]:hover [class*="icon1-"]{
+	-webkit-animation: fa-spin 1s infinite linear;
+    animation: fa-spin 1s infinite linear;
+}
+[class^="tab-"] a:active,[class^="tab-"] a.active{
+	background:#0088cc;
+	color:#fff;
+	background: -webkit-linear-gradient(#0077aa,#0088cc);
+	box-shadow: 0px 0px 4px 0px lightgray;
+}
+.tab-1 a{
+	width:100%;
+	padding:18px 8px;
+	display:inline-block;
+	margin:-1px 0px 0px 0px;
+}
+.tab-2 a{
+	width:50%;
+	padding:8px 30px;
+}
+.tab-3 a{
+	width:32%;
+}
+.tab-8 a{
+	width:11%;
+}
+.caronrent_tab .tab-2 a{
+	padding:8px 65px;
+}
+
+/*Section Body Part*/
+.main-contain{
+	float:left;
+	width:88%;
+	margin:0 auto;
+}
+[class^="taxi-"]{
+	display:none;
+	width:1050px;
+	height:auto;
+	margin:0 auto;
+	box-shadow:0px 0px 1px 1px #f4f4f4;
+	border-radius:5px;
+	padding:5px 3px;
+	padding-bottom: 20px;
+}
+[class^="taxi-pop"]{
+	display:block;
+}
+[class^="taxi-"] .table{
+	margin:0 auto;
+	width: 800px;
+	margin-top:15px;
+}
+[class^="taxi-"] td{
+	padding-bottom:20px;
+}
+[class^="taxi-outstation"] td {
+padding-bottom:0px;
+}
+[class^="taxi-"] lable{
+	float:left
+}
+.select_city select{
+	width:300px;
+}
+[class^="taxi-"] .select_city{
+	margin:0 auto;
+	width:40%;
+	margin-bottom:15px;
+}
+/*  Airport In Tab  */
+.airport_tab,.caronrent_tab{
+	width: 40%;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom:25px;
+}
+.taxi-go_airport,.taxi-pickup_airport,.taxi-per_hours,.taxi-day_wise{
+	box-shadow:0px 0px 0px 0px #fff;
+}
+
+/* Active Ballon */
+.topMenu .active.left:after{
+	margin-left:-5%;
+	top:52px;
+	border-right: 10px solid transparent;
+	border-top: 13px solid #DADDDF;
+	border-left: 10px solid transparent;
+}
+.topMenu .airport.active.left:after{
+	margin-left:-3%;
+}
+.topMenu .package.active.left:after{
+	margin-left:-3.5%;
+}
+.topMenu .outstation.active.left:after{
+	margin-left:-4%;
+}
+.topMenu .car-on-rent.active.left:after{
+	margin-left:-4.4%;
+}
+.topMenu .taxi-ticket.active.left:after{
+	margin-left:-3.8%;
+}
+.topMenu .active:before,.topMenu .active:after,.sideMenu .active:before,.sideMenu .active:after{
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+.sideMenu .active.left:after{
+	left: 12.8%;
+	margin-left: -1px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 13px solid #1B66AC;
+}
+
+.login_form,.register_form{
+	width:400px;
+	height:auto;
+	margin:0 auto;
+	margin-top:50px;
+	padding:10px;
+	box-shadow:0px 0px 1px 0px gray;
+	background:#fff;
+	border-radius:5px;
+}
+.login_form .input-icon,.register_form .input-icon{
+	position: absolute;
+	margin:6px 0px 0px 0.5px;
+	background:#f1f1f1;
+	padding:7.5px 8px;
+	box-shadow:0px 0px 3px 1px #f1f1f1 inset;
+}
+.login_form input[type="text"],.login_form input[type="password"],.register_form input[type="text"],.register_form input[type="password"]{
+	padding-left:38px;
+}
+.register_form select{
+	width:120%;
+}
