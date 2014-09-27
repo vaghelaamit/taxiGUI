@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dynamic Grid</title>
+<link rel="stylesheet" href="css/DyGridStyle.css">
+<link rel="stylesheet" href="css/commonStyle.css">
+<link rel="stylesheet" href="css/iconFont.css">
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/DyGridJs.js"></script>
+</head>
+
+<body>
+	<div class="DyGrid-10">
+    	<header>
+        		<a href="#" class="create_row" title="Create Row">Add</a>
+                <a href="#" class="delete_row" title="Delete Rows">Delete</a>
+        		<span>Table Title</span>
+        </header>
+        <div class="DyGrid-tbl">
+            <div class="table_header">
+                <span class="DyGrid-th-4">Table Header</span>
+                <span class="DyGrid-th-4">Table Header</span>
+                <span class="DyGrid-th-4">Table Header</span>
+                <span class="DyGrid-th-4">Opration</span>
+            </div>
+
+            <div class="table_row">
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">
+                    <img src="img/edit.png" class="edit_button" title="Edit">
+                    <img src="img/desable.png" title="Desable">
+                	<img src="img/delete.png" class="delete_button" title="Delete">
+                </span>
+            </div>
+            
+             <div class="table_row">
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">
+                    <img src="img/edit.png" class="edit_button" title="Edit">
+                    <img src="img/desable.png" title="Desable">
+                	<img src="img/delete.png" class="delete_button" title="Delete">
+                </span>
+            </div>
+            
+             <div class="table_row">
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">
+                    <img src="img/edit.png" class="edit_button" title="Edit">
+                    <img src="img/enable.png" title="Desable">
+                	<img src="img/delete.png" class="delete_button" title="Delete">
+                </span>
+            </div>
+                <div class="table_row">
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">
+                    <img src="img/edit.png" class="edit_button" title="Edit">
+                    <img src="img/desable.png" title="Desable">
+                	<img src="img/delete.png" class="delete_button" title="Delete">
+                </span>
+            </div>
+             <div class="table_row">
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                 <span class="DyGrid-td-4">
+                    <img src="img/edit.png" class="edit_button" title="Edit">
+                    <img src="img/desable.png" title="Desable">
+                	<img src="img/delete.png" class="delete_button" title="Delete">
+                </span>
+            </div>
+             <div class="table_row">
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">
+                    <img src="img/edit.png" class="edit_button" title="Edit">
+                    <img src="img/desable.png" title="Desable">
+                	<img src="img/delete.png" class="delete_button" title="Delete">
+                </span>
+            </div>
+             <div class="table_row">
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">abcd</span>
+                <span class="DyGrid-td-4">
+                    <img src="img/edit.png" class="edit_button" title="Edit">
+                    <img src="img/desable.png" title="Desable">
+                	<img src="img/delete.png" class="delete_button" title="Delete">
+                </span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="createPopup_Bg"></div>
+    <div class="createPopup">
+    	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
+    	<header>Add Driver</header>
+    	<form action="#" method="post" class="popup_form">
+        	<table>
+            	<tr>
+                    <td><input type="text" name="firstname" alt="firstname" placeholder="First Name" required/></td>
+                    <td><input type="text" name="lastname" alt="lastname" placeholder="Last Name" required/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="Email" alt="Email" placeholder="Email" required/></td>
+                    <td><input type="text" name="Mobile" alt="Mobile" placeholder="Mobile" required/></td>
+                </tr>
+                <tr>
+                    <td><textarea name="Address" alt="address" placeholder="address" required></textarea></td>
+                    <td><input type="text" name="RegisterNo" alt="RegisterNo" placeholder="Register No." required/></td>                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="Drivinglino" alt="Drivinglino" placeholder="Driving Licence Number" required/></td>
+                    <td><input type="text" name="Electioncardno." alt="Electioncardno" placeholder="Election Card Number" required/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="pancardnumber" alt="pancardnumber" placeholder="Pan Card Number" required/></td>
+                    <td><input type="text" name="Lightbill" alt="lightbill" placeholder="Light Bill Number" required/></td>                    
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="file" class="file" required/></td>
+                </tr>
+                <tr>
+                	<td></td>
+                	<td class="on-right"><input type="submit" class="primary" alt="Submit" value="Submit"/>
+                	<input type="reset" class="danger close_button" alt="Cancel" value="Cancel"/></td>
+                </tr>	
+            </table>
+        </form>
+    </div>
+    <div class="editPopup">
+    	<span class="icon-cancel on-right rm5 extra-lg close_button"></span>
+    	<header>Edit Table Row Form</header>
+    	<form action="#" method="post" class="popup_form">
+        	<table>
+            	<tr>
+                    <td><input type="text" name="firstname" alt="firstname" placeholder="First Name" required/></td>
+                    <td><input type="text" name="lastname" alt="lastname" placeholder="Last Name" required/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="Email" alt="Email" placeholder="Email" required/></td>
+                    <td><input type="text" name="Mobile" alt="Mobile" placeholder="Mobile" required/></td>
+                </tr>
+                <tr>
+                    <td><textarea name="Address" alt="address" placeholder="address" required></textarea></td>
+                    <td><input type="text" name="RegisterNo" alt="RegisterNo" placeholder="Register No." required/></td>                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="Drivinglino" alt="Drivinglino" placeholder="Driving Licence Number" required/></td>
+                    <td><input type="text" name="Electioncardno." alt="Electioncardno" placeholder="Election Card Number" required/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="pancardnumber" alt="pancardnumber" placeholder="Pan Card Number" required/></td>
+                    <td><input type="text" name="Lightbill" alt="lightbill" placeholder="Light Bill Number" required/></td>                    
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="file" class="file" required/></td>
+                </tr>
+                <tr>
+                	<td></td>
+                	<td class="on-right"><input type="submit" class="primary" alt="Submit" value="Submit"/>
+                	<input type="reset" class="danger close_button" alt="Cancel" value="Cancel"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+</body>
+</html>

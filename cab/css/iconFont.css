@@ -32,6 +32,11 @@
   font-size: .7em;
   vertical-align: 6%;
 }
+[class*="icon-"].extra-lg,[class*="icon1-"].extra-lg{
+  font-size: 1.6em;
+  line-height:1.3em;
+  vertical-align: -8%;	
+}
 [class*="icon-"].large,[class*="icon1-"].large {
   font-size: 1.1em;
   line-height:1.3em;

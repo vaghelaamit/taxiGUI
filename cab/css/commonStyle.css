@@ -16,7 +16,6 @@ body{
 html,body {
   padding: 0;
   margin: 0;
-  height: 100%;
 }
 article,
 aside,
@@ -43,7 +42,8 @@ table label{
 	text-align:center;
 	display:block;
 }
-select,input[type="search"],input[type=text],input[type=email],input[type=url],input[type=tel],input[type=number],input[type=time],input[type=password],input[type=date],textarea{
+select,input[type="search"],input[type=text],input[type=email],input[type=url],input[type=tel],input[type=number],input[type=time],
+input[type=password],input[type=date],input[type=file],textarea{
 	width:98%;
 	margin:0 auto;
 	background-color: #ffffff;
@@ -72,6 +72,19 @@ select{
 textarea{
 	height:50px;
 }
+.button,.file::-webkit-file-upload-button{
+	border: none;
+	padding: 8.5px 15px;
+	margin: 0 auto;
+	position: relative;
+	top: -3.55px;
+	left:-10px;
+	background: #606c88;
+	color: #fff;
+	float:left;
+	cursor: pointer;
+}
+
 select:focus,input:focus,textarea:focus{
 	border-color:#606c88;
 	outline: thin dotted \9;
@@ -392,18 +405,6 @@ input[type="button"].mini,input[type="submit"].mini,input[type="reset"].mini,but
 .clear{
   clear: both;
 }
-.text-rest-state {
-  color: #000000;
-}
-.text-rest2-state {
-  color: #000000;
-}
-.text-hover-state {
-  color: rgba(0, 0, 0, 0.8);
-}
-.text-pressed-state {
-  color: rgba(0, 0, 0, 0.4);
-}
 #font .light {
   font-weight: 300;
 }
@@ -505,6 +506,7 @@ input[type="button"].mini,input[type="submit"].mini,input[type="reset"].mini,but
 h1,h2,h3,h4,h5,h6 {
   padding: 0;
   margin: 10px 0;
+  text-align:center;
 }
 h1 {
   font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
@@ -837,4 +839,17 @@ strong {
 }
 a{
 	text-decoration:none;
+}
+.white{
+	color:#fff;
+}
+.footer{
+	width:100%;
+	position:fixed;
+	background:#000;
+	position:absolute;
+	bottom:0;
+	left:0;
+	z-index:999;
+	height:40px;
 }
