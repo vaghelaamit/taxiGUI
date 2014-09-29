@@ -20,9 +20,10 @@
     </div>
     <div class="header bg_color">smartCab</div>
     <!-- City DropDown -->
+    <!--<div class="drop_down_menu">Select City<i class="fa fa-plus-square fa-lg on-right rm5"></i></div>-->
     <div class="section">
         <!--  Top Menu -->
-        <ul class="header-tab8 on-right topMenu">
+        <ul class="header-tab8 on-right topMenu topmenu-taxi">
             <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
             <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
             <li class="tab-8"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
@@ -33,16 +34,38 @@
             <li class="tab-8"><a class="left" href="#"><i class="fa fa-truck on-left"></i>Shipping</a></li>
 	        <div class="clear"></div>
 	    </ul>
+        <ul class="header-tab8 on-right topMenu topmenu-bus">
+            <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
+            <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
+            <li class="tab-8"><a class="left busticket" href="#"><i class="fa fa-ticket on-left"></i>Bus Ticket</a></li>
+            <li class="tab-8"><a class="left busesonrent" href="#"><i class="fa fa-key on-left"></i>Bus on Rent</a></li>
+	        <div class="clear"></div>
+	    </ul>
+        <ul class="header-tab8 on-right topMenu topmenu-truck">
+            <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
+            <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
+            <li class="tab-8"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
+            <li class="tab-8"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
+	        <div class="clear"></div>
+	    </ul>
+        <ul class="header-tab8 on-right topMenu topmenu-motorCycle">
+            <li class="tab-8"><a class="left active point-to-point" href="#"><i class="fa fa-map-marker on-left"></i>Point To Point</a></li>
+            <li class="tab-8"><a class="left airport" href="#"><i class="fa fa-plane large on-left"></i>Airport</a></li>
+            <li class="tab-8"><a class="left package" href="#"><i class="fa fa-cubes on-left"></i>Package</a></li>
+            <li class="tab-8"><a class="left outstation" href="#"><i class="fa fa-outdent on-left"></i>Outstation</a></li>
+	        <div class="clear"></div>
+	    </ul>
+
         <!--  Side Menu -->
        	<ul class="header-tab1 sideMenu">
-        	<li class="tab-1"><a href="#" class="active left"><i class="fa fa-car on-left fa-lg"></i>Taxi</a></li>
-            <li class="tab-1"><a href="#"><i class="fa fa-bus on-left fa-lg"></i>Bus</a></li>
-            <li class="tab-1"><a href="#" class=""><i class="fa fa-truck on-left fa-lg"></i>Truck</a></li>            
-            <li class="tab-1"><a href="#"><i class="icon1-bell large on-left"></i>MotorCycle</a></li>
+        	<li class="tab-1"><a href="#" class="active left sideMenu-taxi"><i class="fa fa-car on-left fa-lg"></i>Taxi</a></li>
+            <li class="tab-1"><a href="#" class="sideMenu-bus"><i class="fa fa-bus on-left fa-lg"></i>Bus</a></li>
+            <li class="tab-1"><a href="#" class="sideMenu-truck"><i class="fa fa-truck on-left fa-lg"></i>Truck</a></li>            
+            <li class="tab-1"><a href="#" class="sideMenu-motorCycle"><img src="img/bike.png" class="on-left fa-">MotorCycle</a></li>
         </ul>
-
         <!-- Section Div  -->
-        <div class="main-contain">
+        <!-- Taxi Section Start  -->
+        <div class="main-contain taxi-section">
 	       	<!--Taxi Point to Point Design -->
             <div class="taxi-pop">
             <form action="#" method="post">
@@ -115,6 +138,7 @@
 					<input type="submit" class="command-button info" value="Find My Taxi"/>
                 </div>
             </form>
+            <div class="clear"></div>
             </div>
             <!-- Pick up from Airport -->
             <div class="taxi-pickup_airport">
@@ -140,6 +164,7 @@
 					<input type="submit" class="command-button info" value="Find My Taxi"/>
                 </div>
             </form>
+            <div class="clear"></div>
             </div>
 
          	</div>
@@ -180,8 +205,8 @@
                 <div class="btn-15p">
 					<input type="submit" class="command-button info" value="Find My Taxi"/>
                 </div>
-
             </form>
+            <div class="clear"></div>
          	</div>
             <!-- outStation Design -->
             <div class="taxi-outstation">
@@ -212,6 +237,7 @@
 					<input type="submit" class="command-button info" value="Find My Taxi"/>
                 </div>
             </form>
+            <div class="clear"></div>
          	</div>
             <!-- Car on Rent Design -->
             <div class="taxi-caronrent">
@@ -250,6 +276,7 @@
 					<input type="submit" class="command-button info" value="Find My Taxi"/>
                 </div>
             </form>
+            <div class="clear"></div>
             </div>
             <!-- Pick up from Airport -->
             <div class="taxi-day_wise">
@@ -275,6 +302,7 @@
 					<input type="submit" class="command-button info" value="Find My Taxi"/>
                 </div>
             </form>
+            <div class="clear"></div>
             </div>
             
          	</div>
@@ -306,11 +334,186 @@
                 <div class="btn-15p">
 					<input type="submit" class="command-button info" value="Find My Taxi"/>
                 </div>
-
             </form>
+            <div class="clear"></div>
          	</div>
-            
         </div>
+        <!-- Taxi section End -->
+        
+        <!-- Bus Section Start  -->
+        <div class="main-contain bus-section">
+	       	<!--Taxi Point to Point Design -->
+            <div class="bus-pop">
+            <form action="#" method="post">
+            	<div class="select_city">
+		           		<label>Select City :</label>
+                		<select>
+                        	<option>w</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select>
+                </div>
+               	<table class="table">
+                    <tr>
+                    	<td><label>Pickup Area :</label></td>                    
+                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><label>Drop Area :</label></td>
+                        <td><input type="text" placeholder="Drop Area" required></td>
+                    </tr>
+                    <tr>
+	                    <td><label>Pickup Date :</label></td>                    
+                        <td><input type="date" required></td>
+	                    <td><label>Pickup Time :</label></td>                    
+                        <td><input type="date" required></td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Taxi"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+            </div>
+            <!-- Airport Design -->
+            <div class="bus-airport">
+            <div class="select_city">
+		           		<label>Select city :</label>
+                		<select>
+                        	<option>w</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select>
+                </div>
+            <div class="airport_tab">
+            	<span class="tab-2"><a href="#" class="active go_airport">Going To Airport</a></span>
+                <span class="tab-2"><a href="#" class="pick_airport">Pickup From Airport</a></span>
+            </div>
+            <div class="border-bottom"></div>
+            <!-- Go to Airport -->
+            <div class="taxi-go_airport">
+            <form action="#" method="post">
+            	
+               	<table class="table">
+                    <tr>
+                    	<td><label>Airport Name :</label></td>                    
+                        <td><select>
+                        	<option>Airport</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select></td>
+                        <td><label>Pickup Area :</label></td>
+                        <td><input type="text" placeholder="Pickup Area" required></td>
+                    </tr>
+                    <tr>
+	                    <td><label>Pickup Date :</label></td>                    
+                        <td><input type="date" required></td>
+	                    <td><label>Pickup Time :</label></td>                    
+                        <td><input type="date" required></td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Taxi"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+            </div>
+            <!-- Pick up from Airport -->
+            <div class="taxi-pickup_airport">
+               	<table class="table">
+                    <tr>
+                    	<td><label>Airport Name :</label></td>                    
+                        <td><select>
+                        	<option>Airport</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select></td>
+                        <td><label>Drop Area :</label></td>
+                        <td><input type="text" placeholder="Drop Area" required></td>
+                    </tr>
+                    <tr>
+	                    <td><label>Pickup Date :</label></td>                    
+                        <td><input type="date" required></td>
+	                    <td><label>Pickup Time :</label></td>                    
+                        <td><input type="date" required></td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Taxi"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+            </div>
+
+         	</div>
+            <!-- Package Design -->
+            <div class="bus-ticket">
+            <form action="#" method="post">
+            <!--	<div class="select_city">
+		           		<label>Select City :</label>
+                		<select>
+                        	<option>w</option>
+                            <option>w</option>
+                            <option>w</option>
+                        </select>
+                </div>-->
+               	<table class="table">
+                    <tr>
+                    	<td><label>From :</label></td>                    
+                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><label>To :</label></td>
+                        <td><input type="text" placeholder="Drop Area" required></td>
+                    </tr>
+                    <tr>
+	                    <td><label>Date of Journey :</label></td>                    
+                        <td><input type="date" required></td>
+	                    <td><label>Date of Return :</label></td>                    
+                        <td><input type="date" required></td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Taxi"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+         	</div>
+            <!-- outStation Design -->
+            <div class="bus-on-rent">
+            <form action="#" method="post">
+               	<table class="table">
+                    <tr>
+                    	<td><label>From :</label></td>                    
+                        <td><input type="text" placeholder="Pickup Area" required></td>
+                    </tr>
+                    <tr>
+                    	<td><label>To :</label></td>                    
+                        <td><input type="text" placeholder="Pickup Area" required></td>
+                        <td><label class="fa fa-plus-square lm20 fa-lg" onClick="addRow()"></label></td>
+                    </tr>
+                    <tbody class="addrow"></tbody>
+                    <tr>
+	                    <td><label>ON :</label></td>                    
+                        <td><input type="date" required></td>
+	                    <td><label>For :</label></td>                    
+                        <td><input type="date" required></td>
+                    </tr>
+                    <tr>
+	                    <td><label>Bus Type :</label></td>                    
+                        <td><select>
+                        	<option>Bus Type</option>
+                            <option>Bus Type</option>
+                            <option>Bus Type</option>
+                            <option>Bus Type</option>
+                            <option>Bus Type</option>
+                        </select></td>
+                    </tr>
+                </table>
+                <div class="btn-15p">
+					<input type="submit" class="command-button info" value="Find My Taxi"/>
+                </div>
+            </form>
+            <div class="clear"></div>
+         	</div>
+        </div>
+        <!-- Bus Section End  -->
       <div class="clear"></div>	
     </div>
     <div class="footer"></div>

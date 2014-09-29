@@ -229,8 +229,8 @@ img:hover{
 .createPopup header,.editPopup header{
 	font-weight:bold;
 	font-size:20px;
-	box-shadow:0px 0px 2px 0px #f4f4f4;
-	background:#0CF;
+	box-shadow: 0px 0px 0px 1px #f4f4f4;
+	background:#F4F4F4;
 	margin:0 auto;
 	text-align:center;
 	padding:5px;

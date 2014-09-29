@@ -2097,7 +2097,6 @@
   border: solid 0.08em #eeeeee;
   border-radius: .1em;
 }
-
 .fa.pull-left {
   margin-right: .3em;
 }
@@ -2278,6 +2277,10 @@
 }
 .fa-inbox:before {
   content: "\f01c";
+}
+.fa-bike:before{
+	background:url(../../../../cab/img/bike.png) no-repeat;
+	background:100%;
 }
 .fa-play-circle-o:before {
   content: "\f01d";

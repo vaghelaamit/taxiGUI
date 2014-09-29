@@ -61,7 +61,7 @@ input[type=password],input[type=date],input[type=file],textarea{
 	line-height:25px;
 	color: #555555;
 	vertical-align:middle;
-	border-radius:0px;
+	border-radius:2px;
 	outline: 0;
 	background:#FCFCFC;
 }
@@ -79,7 +79,7 @@ textarea{
 	position: relative;
 	top: -3.55px;
 	left:-10px;
-	background: #606c88;
+	background:#16499a;
 	color: #fff;
 	float:left;
 	cursor: pointer;
@@ -844,12 +844,11 @@ a{
 	color:#fff;
 }
 .footer{
-	width:100%;
-	position:fixed;
-	background:#000;
-	position:absolute;
-	bottom:0;
-	left:0;
-	z-index:999;
-	height:40px;
+	width: 100%;
+	position: fixed;
+	background: #000;
+	bottom: 0;
+	left: 0;
+	z-index: 999999;
+	height: 40px;
 }
