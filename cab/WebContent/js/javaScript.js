@@ -115,6 +115,7 @@ $('document').ready(function(){
 	});
     $('.sideMenu-bus').click(function(){
 			topmenuHide();
+			$('[class^="taxi-"]').hide();
 			$('.topmenu-bus').show();
 		    $('.bus-section').show();
 			$('.bus-pop').fadeIn(300);
