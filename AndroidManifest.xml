@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="vcs.com.demoall" >
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Paging"
+            android:label="@string/app_name" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter >
+        </activity >
+        <activity
+            android:name=".LinkedlistActivity"
+            android:screenOrientation="unspecified" />
+        <activity
+            android:name=".HashMapActivity"
+            android:screenOrientation="unspecified" />
+        <activity
+            android:name=".ArraylistActivity"
+            android:screenOrientation="unspecified" />
+        <activity
+            android:name=".TreeMapActivity"
+            android:screenOrientation="unspecified" />
+
+        <service
+            android:name=".locservice.LocationService"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Location service" />
+        <service
+            android:name=".locservice.LocationServiceNew"
+            android:label="Location Service" />
+    </application >
+</manifest >
