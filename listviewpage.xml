@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/btnDown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/page_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/HO_Order_Approach_Fragment_pagepre"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorPrimary"
+            android:focusable="false"
+            android:padding="5dp"
+            android:visibility="visible" />
+
+        <com.example.webclues.vcs.horizontalListView.Horizontal_List_view
+            android:id="@+id/HO_Order_sku_Fragment_pageView"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp" />
+
+        <ImageView
+            android:id="@+id/HO_Order_sku_Fragment_pagenext"
+            android:layout_width="@dimen/font_normal_size"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorPrimary"
+            android:focusable="false"
+            android:padding="10dp"
+            android:visibility="visible" />
+        <!--android:src="@drawable/right_arrow_white"-->
+    </LinearLayout >
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="No Data"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+</LinearLayout >
