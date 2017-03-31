@@ -1,21 +1,20 @@
 package vcs.com.demoall;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,11 +31,14 @@ import java.util.Map;
 
 public class ListviewPagination extends AppCompatActivity {
 
-   ListView listView;
+   RecyclerView listView;
    TextView noData;
    ArrayList<CityModel> nwModels = new ArrayList<>();
    String URLJ = "http://172.16.8.105/ECPIOSMobileWebService_Ver180/ecpMobileToWebSync.asmx";
    Map<String, String> parameterPost = new HashMap<>();
+   RecyclerListAdapter adapter = null;
+   Button btnUp, btnDown;
+   Horizontal_List_view h_list;
 
    @Override
    protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,14 +53,95 @@ public class ListviewPagination extends AppCompatActivity {
       actionBar.setCustomView(R.layout.actionbar);
       ((TextView) findViewById(R.id.actionTitle)).setText("NWDay");
 
-      listView = (ListView) findViewById(R.id.listView);
+      listView = (RecyclerView) findViewById(R.id.listView);
       noData = (TextView) findViewById(R.id.noData);
+      h_list = (Horizontal_List_view) findViewById(R.id.HO_Order_sku_Fragment_pageView);
+
+      RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(ListviewPagination.this);
+      listView.setHasFixedSize(true);
+      listView.setLayoutManager(mLayoutManager);
+      listView.setItemAnimator(new DefaultItemAnimator());
 
       if (isNetworkConnected()) {
          new Longoperation().execute();
       } else {
          Toast.makeText(ListviewPagination.this, "no internet connection", Toast.LENGTH_SHORT).show();
       }
+
+      btnUp = (Button) findViewById(R.id.btnUp);
+      btnUp.setVisibility(View.GONE);
+      btnUp.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            //if (nwModels.size() > 0)
+            //   listView.smoothScrollToPosition(0);
+         }
+      });
+
+      btnDown = (Button) findViewById(R.id.btnDown);
+      btnDown.setVisibility(View.GONE);
+      btnDown.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            //if (nwModels.size() > 0)
+            //   listView.smoothScrollToPosition(0);
+         }
+      });
+
+      listView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+         @Override
+         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+         }
+
+         @Override
+         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            if (dy > 0) {
+               btnDown.setVisibility(View.GONE);
+               btnUp.setVisibility(View.GONE);
+            } else if (dy < 0) {
+               btnDown.setVisibility(View.VISIBLE);
+               btnUp.setVisibility(View.VISIBLE);
+            }
+         }
+      });
+
+      /*h_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         @Override
+         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            pagecount = position + 1;
+            data.clear();
+            for (int i = 1; i <= limit; i++) {
+               PageModel m = new PageModel();
+               m.setPage(i);
+               m.setIsSelected(false);
+               data.add(m);
+            }
+            data.get(position).setIsSelected(true);
+            ad.notifyDataSetChanged();
+            Get_Order_Approach();
+         }
+      });
+
+      //json parsing
+
+      if (PageFlag) {
+         total_rows = jo.getString("total_rows");
+         PageFlag = false;
+         limit = Integer.parseInt(jo.getString("pages"));
+         data = new ArrayList<PageModel>();
+         for (int i = 1; i <= limit; i++) {
+            PageModel m = new PageModel();
+            m.setPage(i);
+            m.setIsSelected(false);
+            data.add(m);
+         }
+         data.get(0).setIsSelected(true);
+         ad = new PagerAdapter(getActivity(), data);
+         h_list.setAdapter(ad);
+      }  */
    }
 
    /*@Override
@@ -203,7 +286,8 @@ public class ListviewPagination extends AppCompatActivity {
             if (nwModels != null && nwModels.size() > 0) {
                listView.setVisibility(View.VISIBLE);
                noData.setVisibility(View.GONE);
-               listView.setAdapter(new ListDataAdapter(ListviewPagination.this));
+               adapter = new RecyclerListAdapter();
+               listView.setAdapter(new RecyclerListAdapter());
             } else {
                listView.setVisibility(View.GONE);
                noData.setVisibility(View.VISIBLE);
@@ -215,7 +299,50 @@ public class ListviewPagination extends AppCompatActivity {
       }
    }
 
-   public class ListDataAdapter extends BaseAdapter {
+   public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.ViewHolder> {
+
+      @Override
+      public RecyclerListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_listnwday_new,
+                                                                      parent, false);
+         ViewHolder viewHolder = new ViewHolder(view);
+
+         return viewHolder;
+      }
+
+      @Override
+      public void onBindViewHolder(RecyclerListAdapter.ViewHolder holder, int position) {
+         holder.txtDoctorName.setText(nwModels.get(position).getVarCityName());
+         //holder.txtCategory.setText(nwModels.get(position).getFk_StateGlCode());
+      }
+
+      @Override
+      public int getItemCount() {
+         return nwModels.size();
+      }
+
+      public class ViewHolder extends RecyclerView.ViewHolder {
+         // each data item is just a string in this case
+         private TextView txtCategory, txtDoctorName;
+
+         public ViewHolder(View view) {
+            super(view);
+            //txtCategory = (TextView) view.findViewById(R.id.dataNw);
+            txtDoctorName = (TextView) view.findViewById(R.id.dataCity);
+
+            view.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                  //getAdapterPosition()
+                  //Intent intentDetails = new Intent(getActivity(), DoctorAnalysisDetailsActivity.class);
+                  //startActivity(intentDetails);
+               }
+            });
+         }
+      }
+   }
+
+   /*public class ListDataAdapter extends BaseAdapter {
 
       private final Activity activity;
       private LayoutInflater inflater = null;
@@ -264,16 +391,16 @@ public class ListviewPagination extends AppCompatActivity {
             }
          });
 
-         View.OnClickListener onChk = new View.OnClickListener() {
+         *//*View.OnClickListener onChk = new View.OnClickListener() {
             public void onClick(View v) {
 
                int index = listView.getFirstVisiblePosition();
                getListView().smoothScrollToPosition(index + 1); // For increment.
 
             }
-         };
+         };*//*
 
          return v;
       }
-   }
+   }*/
 }
