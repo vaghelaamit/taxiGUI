@@ -11,12 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -50,15 +50,8 @@ public class ArraylistActivity extends SetDataAbstract implements
    RecyclerListAdapter adapter;
    boolean loadMore = false;
    int pre = 0, next = 0;
-   private ArrayList<String> strArr = new ArrayList<>();
-   private ArrayList<String> strArrNew = new ArrayList<>();
-   private ArrayList<Student> arrStdModel = new ArrayList<>();
-   private ArrayList<CityModel> ctArr = new ArrayList<>();
-   private ArrayList<CityModel> ctArr10 = new ArrayList<>();
    List<CityModel> ctListArr = new ArrayList<>();
-   //RecyclerListAdapter adapter = null;
-   //Button btnUp, btnDown;
-
+   List<CityModel> page = new ArrayList<>();
    /*@Override
    public void onClick(View view) {
       switch (view.getId()) {
@@ -67,6 +60,14 @@ public class ArraylistActivity extends SetDataAbstract implements
          default:
       }
    }*/
+   int currentPage = 0;
+   private ArrayList<String> strArr = new ArrayList<>();
+   private ArrayList<String> strArrNew = new ArrayList<>();
+   private ArrayList<Student> arrStdModel = new ArrayList<>();
+   private ArrayList<CityModel> ctArr = new ArrayList<>();
+   //RecyclerListAdapter adapter = null;
+   //Button btnUp, btnDown;
+   private ArrayList<CityModel> ctArr10 = new ArrayList<>();
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -80,25 +81,57 @@ public class ArraylistActivity extends SetDataAbstract implements
       jsonParse();
 
       listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+         float mInitialX = 0, mInitialY = 0;
+         boolean scrollDown = false;
          private int currentVisibleItemCount;
          private int currentScrollState;
          private int currentFirstVisibleItem;
          private int totalItem;
-         private LinearLayout lBelow;
+         private int mLastFirstVisibleItem;
 
          @Override
          public void onScrollStateChanged(AbsListView view, int scrollState) {
             // TODO Auto-generated method stub
             this.currentScrollState = scrollState;
             this.isScrollCompleted();
+
+            view.setOnTouchListener(new View.OnTouchListener() {
+               @Override
+               public boolean onTouch(View v, MotionEvent event) {
+                  switch (event.getAction()) {
+                     case MotionEvent.ACTION_DOWN:
+                        mInitialX = event.getX();
+                        mInitialY = event.getY();
+                        return true;
+                     case MotionEvent.ACTION_MOVE:
+                        final float x = event.getX();
+                        final float y = event.getY();
+                        final float yDiff = y - mInitialY;
+                        if (yDiff > 0.0) {
+                           Log.d("", "SCROLL DOWN");
+                           scrollDown = true;
+                           currentPage++;
+                           break;
+                        } else if (yDiff < 0.0) {
+                           Log.d("", "SCROLL up");
+                           scrollDown = true;
+                           if (currentPage > 0) {
+                              currentPage--;
+                           }
+                           break;
+                        }
+                        break;
+                  }
+                  return false;
+               }
+            });
          }
 
          private void isScrollCompleted() {
             if (totalItem - currentFirstVisibleItem == currentVisibleItemCount
               && this.currentScrollState == SCROLL_STATE_IDLE) {
-               pre = pre + 5;
-               next = next + 5;
-               new Longoperation().execute("" + pre, "" + next);
+
+               new Longoperation().execute("" + currentPage);
             }
          }
 
@@ -109,8 +142,17 @@ public class ArraylistActivity extends SetDataAbstract implements
             this.currentFirstVisibleItem = firstVisibleItem;
             this.currentVisibleItemCount = visibleItemCount;
             this.totalItem = totalItemCount;
+            if (mLastFirstVisibleItem < firstVisibleItem) {
+               Log.i("SCROLLING DOWN", "TRUE");
+            }
+            if (mLastFirstVisibleItem > firstVisibleItem) {
+               Log.i("SCROLLING UP", "TRUE");
+            }
+            mLastFirstVisibleItem = firstVisibleItem;
          }
       });
+
+
 
       /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
       lat = (TextView) findViewById(R.id.lat);
@@ -213,7 +255,7 @@ public class ArraylistActivity extends SetDataAbstract implements
    }
 
    private void jsonParse() {
-      new Longoperation().execute("" + pre, "" + next);
+      new Longoperation().execute("" + currentPage);
    }
 
    @Override
@@ -322,18 +364,16 @@ public class ArraylistActivity extends SetDataAbstract implements
       @Override
       protected String doInBackground(String... params) {
 
-         values = Integer.parseInt(params[0]);
+         currentPage = Integer.parseInt(params[0]);
          //String fkStateGlCode = params[0];
 
          /*final String param0 = URLJ + "/" + "OM_IOSNW_GetCityList";
          final String param1 = "fk_EmpGLCode_Login=" + 252 +
            "&varClientName=" + "IQAA" + "&fk_StateGlCode=" + 1;
-
          parameterPost.clear();
          parameterPost.put("fk_EmpGLCode_Login", "" + 252);
          parameterPost.put("varClientName", "" + "IQAA");
          parameterPost.put("fk_StateGlCode", "" + 1);
-
          Utils.printLoge(5, "param0", "*****" + param0);
          Utils.printLoge(5, "param1", "*****" + param1);*/
          //String result = Utils.CallHttpMethod(JsonParsing.this, param0, param1);
@@ -425,7 +465,7 @@ public class ArraylistActivity extends SetDataAbstract implements
                   ctArr.add(cm);
                }
 
-               next = next + 5;
+               //next = next + 5;
                ctArr10 = new ArrayList<>(ctArr.subList(pre, next));
                loadMore = true;
 
@@ -452,7 +492,11 @@ public class ArraylistActivity extends SetDataAbstract implements
                listView.setVisibility(View.VISIBLE);
                noData.setVisibility(View.GONE);
                //RecyclerListAdapter adapter = new RecyclerListAdapter();
-               listView.setAdapter(new RecyclerListAdapter(ArraylistActivity.this, ctArr10));
+               if (adapter == null) {
+                  listView.setAdapter(new RecyclerListAdapter(ArraylistActivity.this, ctArr10));
+               } else {
+                  adapter.notifyDataSetChanged();
+               }
                //} else {
                //   listView.setVisibility(View.GONE);
                //   noData.setVisibility(View.VISIBLE);
@@ -470,9 +514,9 @@ public class ArraylistActivity extends SetDataAbstract implements
       private Activity activity;
       private LayoutInflater inflaer;
 
-      public RecyclerListAdapter(ArraylistActivity activityOld, ArrayList<CityModel> ct) {
+      public RecyclerListAdapter(ArraylistActivity activityOld, List<CityModel> ct) {
          activity = activityOld;
-         ctArr10 = ct;
+         page = ct;
          inflaer = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
       }
 
@@ -502,7 +546,7 @@ public class ArraylistActivity extends SetDataAbstract implements
          TextView dataRemarks = (TextView) v.findViewById(R.id.dataRemarks);
          ImageView dataImage = (ImageView) v.findViewById(R.id.dataImage);
 
-         final CityModel nw = ctArr10.get(position);
+         final CityModel nw = page.get(position);
          dataNw.setText(nw.getType());
          dataCity.setText(nw.getNumber());
 
